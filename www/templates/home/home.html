@@ -1,0 +1,55 @@
+<ion-view view-title="Home">
+  <ion-nav-buttons side="right">
+    <button class="button" ng-click="help()">
+      Help
+    </button>
+  </ion-nav-buttons>
+  <ion-content class="has-header padding">
+    <div class="row">
+      <div class="col-25 booking_button" ng-click="booking_status(1)"
+           ng-class="selected_1?'active_tab':'not_active_tab'">
+          <p class="text-center text_color">Upcoming</p>
+      </div>
+      <div class="col-25 booking_button" ng-click="booking_status(2)"
+           ng-class="selected_2?'active_tab':'not_active_tab'">
+        <p class="text-center text_color">Availed</p>
+      </div>
+      <div class="col-25 booking_button" ng-click="booking_status(3)"
+           ng-class="selected_3?'active_tab':'not_active_tab'">
+        <p class="text-center text_color">Not Availed</p>
+      </div>
+      <div class="col-25 booking_button" ng-click="booking_status(4)"
+           ng-class="selected_4?'active_tab':'not_active_tab'">
+        <p class="text-center text_color">Issues</p>
+      </div>
+    </div>
+    <div class="card" ng-repeat="booking in Bookings">
+      <div class="item item-text-wrap">
+        <div class="row">
+          <div class="col-67">
+            <p>Customer Name: {{booking.userName}}</p>
+            <p>Customer Payable: {{booking.amountPayable}}</p>
+            <p>Fab2u Payable: {{booking.fab2uPayableAmount}}</p>
+          </div>
+          <div class="col-33">
+            <p>Customer Status:{{booking.userStatus}}</p>
+            <p>Vendor Status:{{booking.vendorStatus}}</p>
+          </div>
+        </div>
+        <div ng-if="(((booking.userStatus == 'upComing') ||(booking.vendorStatus == 'upComing'))
+                            && ((booking.userStatus != 'cancelled')&&(booking.vendorStatus != 'notAvailed')
+                            &&(booking.vendorStatus != 'Availed')))">
+          <button class="button button-small button-positive" ng-click="availed(booking)">
+            Availed
+          </button>
+          <button class="button button-small button-positive" ng-click="notAvailed(booking)">
+            Not Availed
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="card empty_card" ng-hide="Bookings.length>0">
+      <p class="text-center">No,booking are founded in this section!</p>
+    </div>
+  </ion-content>
+</ion-view>

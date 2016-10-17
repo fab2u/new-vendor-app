@@ -1,0 +1,18 @@
+<ion-view view-title="Profile">
+  <ion-content class="has-header padding">
+    <div class="row">
+      <div class="col-33 booking_button" ng-click="profile_status(1)"
+           ng-class="selected_1?'active_tab':'not_active_tab'">
+        <p class="text-center text_color">Overview</p>
+      </div>
+      <div class="col-33 booking_button" ng-click="profile_status(2)"
+           ng-class="selected_2?'active_tab':'not_active_tab'">
+        <p class="text-center text_color">Menu</p>
+      </div>
+      <div class="col-33 booking_button" ng-click="profile_status(3)"
+           ng-class="selected_3?'active_tab':'not_active_tab'">
+        <p class="text-center text_color">Agreement</p>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
