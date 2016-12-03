@@ -23,31 +23,53 @@
         <p class="text-center text_color">Issues</p>
       </div>
     </div>
-    <div class="card" ng-repeat="booking in Bookings">
-      <div class="item item-text-wrap">
-        <div class="row">
-          <div class="col-67">
-            <p>Customer Name: {{booking.userName}}</p>
-            <p>Customer Payable: {{booking.amountPayable}}</p>
-            <p>Fab2u Payable: {{booking.fab2uPayableAmount}}</p>
-          </div>
-          <div class="col-33">
-            <p>Customer Status:{{booking.userStatus}}</p>
-            <p>Vendor Status:{{booking.vendorStatus}}</p>
-          </div>
+    <div ng-show="Bookings" class="bookings" ng-repeat ="booking in Bookings | orderBy : '-appointmentTime'">
+      <div class="main-cont">
+        <div class="first-cont">
+          <p class="booking-status" ng-show="booking.userStatus == 'upComing'">Customer Status:Upcoming</p>
+          <p class="booking-status" ng-show="booking.vendorStatus == 'upComing'">Vendor Status:Upcoming</p>
         </div>
-        <div ng-if="(((booking.userStatus == 'upComing') ||(booking.vendorStatus == 'upComing'))
-                            && ((booking.userStatus != 'cancelled')&&(booking.vendorStatus != 'notAvailed')
-                            &&(booking.vendorStatus != 'Availed')))">
-          <button class="button button-small button-positive" ng-click="availed(booking)">
-            Availed
-          </button>
-          <button class="button button-small button-positive" ng-click="notAvailed(booking)">
-            Not Availed
-          </button>
+        <div class="second-cont">
+          <div id = "salon">{{booking.userName}}</div>
+          <div id = "booking" >Booking ID {{booking.bookingId}}</div>
+          <div id = "amount" >Customer Payable Amount:&#x20B9; {{booking.amountPayable}}</div>
+          <div id ="landmark" >Fab2u Payable Amount:&#x20B9;{{booking.fab2uPayableAmount}}</div>
+          <div id ="date" ><b><i class = "icon ion-calendar" id = "calendar"></i></b><br>{{booking.appointmentTime | date:'dd-MM-yyyy'}}</div>
+          <div id="time"  ><b><i class = "icon ion-clock" id = "clock" ></i></b><br>{{booking.appointmentTime | date:"h:mma"}}</div>
         </div>
       </div>
+      <div class = "button-bar myButtonsDiv" ng-if="(((booking.userStatus == 'upComing') ||(booking.vendorStatus == 'upComing'))
+                            && ((booking.userStatus != 'cancelled')&&(booking.vendorStatus != 'notAvailed')
+                            &&(booking.vendorStatus != 'Availed')))">
+        <button class ="button button1" id="cancel" ng-click="availed(booking)">AVAILED</button>
+        <button class ="button button2" id="details" ng-click="notAvailed(booking)">NOT AVAILED</button>
+      </div>
     </div>
+    <!--<div class="card" ng-repeat="booking in Bookings">-->
+      <!--<div class="item item-text-wrap">-->
+        <!--<div class="row">-->
+          <!--<div class="col-67">-->
+            <!--<p>Customer Name: {{booking.userName}}</p>-->
+            <!--<p>Customer Payable: {{booking.amountPayable}}</p>-->
+            <!--<p>Fab2u Payable: {{booking.fab2uPayableAmount}}</p>-->
+          <!--</div>-->
+          <!--<div class="col-33">-->
+            <!--<p>Customer Status:{{booking.userStatus}}</p>-->
+            <!--<p>Vendor Status:{{booking.vendorStatus}}</p>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div ng-if="(((booking.userStatus == 'upComing') ||(booking.vendorStatus == 'upComing'))-->
+                            <!--&& ((booking.userStatus != 'cancelled')&&(booking.vendorStatus != 'notAvailed')-->
+                            <!--&&(booking.vendorStatus != 'Availed')))">-->
+          <!--<button class="button button-small button-positive" ng-click="availed(booking)">-->
+            <!--Availed-->
+          <!--</button>-->
+          <!--<button class="button button-small button-positive" ng-click="notAvailed(booking)">-->
+            <!--Not Availed-->
+          <!--</button>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
     <div class="card empty_card" ng-hide="Bookings.length>0">
       <p class="text-center">No,booking are founded in this section!</p>
     </div>

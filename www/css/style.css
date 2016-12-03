@@ -2,3 +2,6 @@
 @import url("auth/login.css");
 @import url("auth/signup.css");
 @import url("home/home.css");
+@import url("home/bookings.css");
+@import url("menu/vendor-menu.css");
+@import url("profile/overview.css");

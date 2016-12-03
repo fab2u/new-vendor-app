@@ -5,10 +5,12 @@
     background-color: #666;
 }
 .booking_button{
-    height: 35px;
+    height: 54px;
     width: 25px;
-    margin-top: -12px;
     border-color: black;
+    padding-top: 10px;
+    font-size: 17px;
+    font-weight: 600;
 }
 .text_color{
     color: #f1f2f3;

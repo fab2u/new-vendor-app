@@ -192,7 +192,7 @@ vendorApp.controller('SignUpCtrl', function ($scope,$ionicLoading,$http,$ionicPo
                                 window.localStorage.setItem("uid", $scope.uid);
                                 $rootScope.$broadcast('logged_in', { message: 'usr logged in' });
                                 $state.go('tab.home');
-                                alert('Your account is successfully created.');
+                                alert('Your profile is successfully created.');
                             }
                             else{
                                 alert('Try again!');

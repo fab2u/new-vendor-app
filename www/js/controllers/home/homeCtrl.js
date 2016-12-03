@@ -7,7 +7,7 @@ vendorApp.controller('HomeCtrl', function ($scope,$ionicLoading,$rootScope,$stat
     $scope.selected_3 = false;
     $scope.selected_4 = false;
 
-    var vendor_id = '-KRcADAY15KKRRrKE4hu';
+    var vendor_id = '-KXBKtCXAxgRK0uUs-TG';
     var db = firebase.database();
     $scope.Bookings = [];
     $scope.keys = [];
@@ -18,35 +18,15 @@ vendorApp.controller('HomeCtrl', function ($scope,$ionicLoading,$rootScope,$stat
     function vendorAllBooking(){
         $ionicLoading.show();
         $scope.Bookings = [];
+        $scope.keys = [];
         db.ref("vendorBookings/"+vendor_id).on("value", function(snapshot){
+            console.log(snapshot.val())
             if(snapshot.val()){
-                angular.forEach(snapshot.val(),function (value,key) {
+                for(key in snapshot.val()){
                     $scope.keys.push(key);
-                })
-                $ionicLoading.hide();
-                console.log($scope.keys);
-            }
-
-            if($scope.keys) {
-                for (var i = 0; i < $scope.keys.length; i++) {
-                    firebase.database().ref('bookings/' + $scope.keys[i]).once('value', function (response) {
-                        if(response.val()){
-                            if (((response.val().userStatus == 'upComing') ||(response.val().vendorStatus == 'upComing'))
-                                && ((response.val().userStatus != 'cancelled')&&(response.val().vendorStatus != 'notAvailed')
-                                &&(response.val().vendorStatus != 'Availed'))) {
-                                response.val().active = true;
-                                $scope.Bookings.push(response.val())
-                                $ionicLoading.hide();
-                            }
-                            else{
-                                $ionicLoading.hide();
-                            }
-                        }
-                        else{
-                            $ionicLoading.hide();
-                        }
-                    });
                 }
+                $scope.booking_status(1);
+                console.log($scope.keys);
             }
             else{
                 $ionicLoading.hide();
@@ -74,7 +54,8 @@ vendorApp.controller('HomeCtrl', function ($scope,$ionicLoading,$rootScope,$stat
                         if(response.val()){
                             if (((response.val().userStatus == 'upComing') ||(response.val().vendorStatus == 'upComing'))
                                 && ((response.val().userStatus != 'cancelled')&&(response.val().vendorStatus != 'notAvailed')
-                                &&(response.val().vendorStatus != 'Availed'))) {
+                                &&(response.val().vendorStatus != 'Availed')&&(response.val().userStatus != 'Availed')
+                                &&(response.val().userStatus != 'notAvailed'))) {
                                 response.val().active = true;
                                 $scope.Bookings.push(response.val())
                                 $ionicLoading.hide();
@@ -188,7 +169,7 @@ vendorApp.controller('HomeCtrl', function ($scope,$ionicLoading,$rootScope,$stat
 
     ///////// By default Upcoming booking button is active /////////////
 
-    $scope.booking_status(1);
+    // $scope.booking_status(1);
 
 
     //////////////         Mark a service availed by vendor   ///////////////////////////

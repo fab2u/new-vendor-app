@@ -65,12 +65,12 @@ var vendorApp = angular.module('starter', ['ionic','ngCordova'])
 
       })
 
-  .state('tab.profile', {
-      url: '/profile',
+  .state('tab.menu', {
+      url: '/menu',
       views: {
         'tab-chats': {
-          templateUrl: 'templates/profile/profile.html',
-          controller: 'ProfileCtrl'
+          templateUrl: 'templates/menu/menu.html',
+          controller: 'MenuCtrl'
         }
       }
     })
@@ -84,19 +84,19 @@ var vendorApp = angular.module('starter', ['ionic','ngCordova'])
       }
     })
 
-  .state('tab.account', {
-    url: '/account',
+  .state('tab.profile', {
+    url: '/profile',
     views: {
       'tab-account': {
-        templateUrl: 'templates/tab-account.html',
-        controller: 'AccountCtrl'
+        templateUrl: 'templates/profile/profile.html',
+        controller: 'ProfileCtrl'
       }
     }
   });
 
   // if none of the above states are matched, use this as the fallback
   // $urlRouterProvider.otherwise('/tab/dash');
-  $urlRouterProvider.otherwise('/login');
+  $urlRouterProvider.otherwise('/tab/home');
 
 
 });

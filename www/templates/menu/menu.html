@@ -1,0 +1,95 @@
+<ion-view view-title="MENU" id="vendor-services">
+  <!--<ion-content class="has-header padding">-->
+    <!--<div class="row">-->
+      <!--<div class="col-50 booking_button" ng-click="profile_status(1)"-->
+           <!--ng-class="selected_1?'active_tab':'not_active_tab'">-->
+        <!--<p class="text-center text_color">Overview</p>-->
+      <!--</div>-->
+      <!--<div class="col-50 booking_button" ng-click="profile_status(2)"-->
+           <!--ng-class="selected_2?'active_tab':'not_active_tab'">-->
+        <!--<p class="text-center text_color">Menu</p>-->
+      <!--</div>-->
+      <!--&lt;!&ndash;<div class="col-33 booking_button" ng-click="profile_status(3)"&ndash;&gt;-->
+           <!--&lt;!&ndash;ng-class="selected_3?'active_tab':'not_active_tab'">&ndash;&gt;-->
+        <!--&lt;!&ndash;<p class="text-center text_color">Agreement</p>&ndash;&gt;-->
+      <!--&lt;!&ndash;</div>&ndash;&gt;-->
+    <!--</div>-->
+  <!--</ion-content>-->
+  <ion-content delegate-handle="mainScroll" ng-show="dataLoaded">
+    <div ng-show="menuInfo">
+      <div id="scroll-tabs" class="row">
+        <ion-scroll id="scrollTabs" direction="x" delegate-handle="myhandel">
+          <div id="container">
+            <div style="width:1800px;">
+              <div class="tab"
+                   ng-class="$index == 0 ? 'active':''"
+                   ng-repeat="item in catName"
+                   ng-click="tabHasChanged($index)">
+                <img ng-if="item == 'FACE'" src="img/Face.png">
+                <img ng-if="item == 'BODY'" src="img/Body-Care.png">
+                <img ng-if="item == 'HAIR'" src="img/Hair.png">
+                <img ng-if="item == 'HANDS & FEETS'" src="img/Hands-feet.png">
+                <img ng-if="item == 'HAIR REMOVAL'" src="img/Waxing.png">
+                <img ng-if="item == 'NAILS'" src="img/nail.png">
+                <img ng-if="item == 'PACKAGES'" src="img/packege.png">
+                <img ng-if="item == 'SPA & MASSAGES'" src="img/spa.png">
+                <img ng-if="item == 'FITNESS'" src="img/fitness.png">
+                <img ng-if="item == 'WEDDING & PARTY'" src="img/wedNparty.png">
+                <img ng-if="item == 'TATTOO'" src="img/tatoo.png">
+                <p>{{item}}</p>
+              </div>
+            </div>
+          </div>
+        </ion-scroll>
+        <div class="moreButton icon ion-chevron-right" ng-if="catName.length>3"
+             ng-click="scrollToRight($event)"></div>
+      </div>
+      <div class="row padding" id="slideBox">
+        <ion-slide-box class="slideBox slide-box-view"
+                       on-slide-changed="slideHasChanged($index)"
+                       show-pager="false" delegate-handle="my-handle">
+          <ion-slide ng-repeat="data in menu">
+                    <span ng-if="currSlide == $index">
+                    <div class="col" ng-repeat="(key, value) in data" style="width: 100%;margin:auto;">
+                        <div class="item item-text-wrap list-heading"
+                             ng-repeat="(key1, value1) in services"
+                             ng-if="key == key1">{{value1.serviceName}}</div>
+                        <div id="y.id " class="item item-text-wrap row"
+                             id="custom-servicelist" ng-repeat="y in value">
+                            <div class="col item-text-wrap p-15">
+                                <span class="serviceList-gender"
+                                      ng-show="y.male == true && y.female==undefined && y.kids == undefined">
+                                    {{y.menuItemName}}&nbsp; <span>(Male)</span>
+                                </span>
+                                  <div class="serviceList-gender" ng-show="y.female == true && y.male == undefined && y.kids == undefined">
+                                    {{y.menuItemName}}&nbsp; <span>(Female) </span>
+                                </div>
+                                <span class="serviceList-gender" ng-show="y.female == true && y.male ==true && y.kids == undefined">
+                                    {{y.menuItemName}}&nbsp;<span>(Unisex)</span>
+                                </span>
+                                <span class="serviceList-gender" ng-show="y.female == undefined && y.male ==undefined && y.kids == true">
+                                    {{y.menuItemName}}&nbsp;<span>(Kids)</span>
+                                </span>
+                            </div>
+                            <div class="col col-40 p-15 price-view"
+                                 ng-if="y.vendorPrice != y.customerPrice">
+                                    <span class="striked-text serviceList-gender">&#x20B9;{{y.vendorPrice}} </span>
+                                    <span class="serviceList-gender">
+                                   &#x20B9; {{y.customerPrice}}
+                                    </span>
+                            </div>
+                            <div class="col col-33 p-15 price-view" ng-if="y.vendorPrice == y.customerPrice">
+                                <span class="serviceList-gender">
+                                   &#x20B9; {{y.customerPrice}}
+                                 </span>
+                            </div>
+                        </div>
+                     </div>
+                   </span>
+          </ion-slide>
+        </ion-slide-box>
+      </div>
+    </div>
+  </ion-content>
+
+</ion-view>

@@ -5170,7 +5170,7 @@ ionic.views.Scroll = ionic.views.View.inherit({
         // if it isn't shrink so we can scroll to inputs under the keyboard
         // inset modals won't shrink on Android on their own when the keyboard appears
         if ( ionic.Platform.isIOS() || ionic.Platform.isFullScreen || isInsetModal ) {
-          // if there are things below the scroll view account for them and
+          // if there are things below the scroll view profile for them and
           // subtract them from the keyboard height when resizing
           // E - D                         E                         D
           var scrollBottomOffsetToBottom = e.detail.viewportHeight - scrollBottomOffsetToTop;
@@ -7358,7 +7358,7 @@ ionic.scroll = {
           // if it isn't shrink so we can scroll to inputs under the keyboard
           // inset modals won't shrink on Android on their own when the keyboard appears
           if ( !isPopover && (ionic.Platform.isIOS() || ionic.Platform.isFullScreen || isInsetModal) ) {
-            // if there are things below the scroll view account for them and
+            // if there are things below the scroll view profile for them and
             // subtract them from the keyboard height when resizing
             // E - D                         E                         D
             //var scrollBottomOffsetToBottom = e.detail.viewportHeight - scrollBottomOffsetToTop;

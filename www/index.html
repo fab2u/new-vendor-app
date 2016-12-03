@@ -22,6 +22,7 @@
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
     -->
+    <script src="lib/jquery/dist/jquery.min.js"></script>
 
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
@@ -35,12 +36,20 @@
     <script src="lib/angularfire/dist/angularfire.min.js"></script>
     <script>
       // Initialize Firebase
-      var config = {
-        apiKey: "AIzaSyBaxFFUGviUNUMk8q7tsAV1nNkNeySGNbI",
-        authDomain: "fab2u-d2cb8.firebaseapp.com",
-        databaseURL: "https://fab2u-d2cb8.firebaseio.com",
-        storageBucket: "fab2u-d2cb8.appspot.com",
-      };
+//      var config = {
+//        apiKey: "AIzaSyBaxFFUGviUNUMk8q7tsAV1nNkNeySGNbI",
+//        authDomain: "fab2u-d2cb8.firebaseapp.com",
+//        databaseURL: "https://fab2u-d2cb8.firebaseio.com",
+//        storageBucket: "fab2u-d2cb8.appspot.com",
+//      };
+
+            var config = {
+                    apiKey: "AIzaSyDgn5IGWKBhBj5n1GFY6JJWftUa_3WqXyc",
+                    authDomain: "fab2u-test-2cf67.firebaseapp.com",
+                    databaseURL: "https://fab2u-test-2cf67.firebaseio.com",
+                    storageBucket: "",
+                    messagingSenderId: "62697514263"
+            };
       firebase.initializeApp(config);
     </script>
 
@@ -48,12 +57,13 @@
     <script src="js/app.js"></script>
     <script src="js/controllers/controllers.js"></script>
     <script src="js/controllers/home/homeCtrl.js"></script>
-    <script src="js/controllers/account/accountCtrl.js"></script>
+    <script src="js/controllers/profile/profileCtrl.js"></script>
     <script src="js/controllers/appointment/appointmentCtrl.js"></script>
     <script src="js/controllers/auth/loginCtrl.js"></script>
     <script src="js/controllers/auth/signUpCtrl.js"></script>
-    <script src="js/controllers/profile/profileCtrl.js"></script>
+    <script src="js/controllers/menu/menuCtrl.js"></script>
     <script src="js/services.js"></script>
+    <script src="js/services/profile/vendorServices.js"></script>
   </head>
   <body ng-app="starter">
     <!--

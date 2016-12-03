@@ -5177,7 +5177,7 @@ ionic.views.Scroll = ionic.views.View.inherit({
         // if it isn't shrink so we can scroll to inputs under the keyboard
         // inset modals won't shrink on Android on their own when the keyboard appears
         if ( ionic.Platform.isIOS() || ionic.Platform.isFullScreen || isInsetModal ) {
-          // if there are things below the scroll view account for them and
+          // if there are things below the scroll view profile for them and
           // subtract them from the keyboard height when resizing
           // E - D                         E                         D
           var scrollBottomOffsetToBottom = e.detail.viewportHeight - scrollBottomOffsetToTop;
@@ -7365,7 +7365,7 @@ ionic.scroll = {
           // if it isn't shrink so we can scroll to inputs under the keyboard
           // inset modals won't shrink on Android on their own when the keyboard appears
           if ( !isPopover && (ionic.Platform.isIOS() || ionic.Platform.isFullScreen || isInsetModal) ) {
-            // if there are things below the scroll view account for them and
+            // if there are things below the scroll view profile for them and
             // subtract them from the keyboard height when resizing
             // E - D                         E                         D
             //var scrollBottomOffsetToBottom = e.detail.viewportHeight - scrollBottomOffsetToTop;
@@ -33382,8 +33382,8 @@ function timeZoneGetter(date, formats, offset) {
 function getFirstThursdayOfYear(year) {
     // 0 = index of January
     var dayOfWeekOnFirst = (new Date(year, 0, 1)).getDay();
-    // 4 = index of Thursday (+1 to account for 1st = 5)
-    // 11 = index of *next* Thursday (+1 account for 1st = 12)
+    // 4 = index of Thursday (+1 to profile for 1st = 5)
+    // 11 = index of *next* Thursday (+1 profile for 1st = 12)
     return new Date(year, 0, ((dayOfWeekOnFirst <= 4) ? 5 : 12) - dayOfWeekOnFirst);
 }
 
@@ -62553,7 +62553,7 @@ function RepeatManagerFactory($rootScope, $window, $$rAF) {
       var beforeMargin = parseInt(beforeStyle[isVertical ? 'marginBottom' : 'marginRight'] || 0);
 
       // Because we position the collection container with position: relative, it doesn't take
-      // into account where to position itself relative to the previous element's marginBottom.
+      // into profile where to position itself relative to the previous element's marginBottom.
       // To compensate, we translate the container up by the previous element's margin.
       containerNode.style[ionic.CSS.TRANSFORM] = TRANSLATE_TEMPLATE_STR
         .replace(PRIMARY, -beforeMargin)
@@ -62844,7 +62844,7 @@ function RepeatManagerFactory($rootScope, $window, $$rAF) {
       this.updateRenderRange = function(scrollValue, scrollValueEnd) {
         renderStartIndex = Math.max(0, this.getEstimatedIndex(scrollValue));
 
-        // Make sure the renderEndIndex takes into account all the items on the row
+        // Make sure the renderEndIndex takes into profile all the items on the row
         renderEndIndex = Math.min(data.length - 1,
           this.getEstimatedIndex(scrollValueEnd) + this.estimatedItemsAcross - 1);
 

@@ -9375,7 +9375,7 @@ function RepeatManagerFactory($rootScope, $window, $$rAF) {
       var beforeMargin = parseInt(beforeStyle[isVertical ? 'marginBottom' : 'marginRight'] || 0);
 
       // Because we position the collection container with position: relative, it doesn't take
-      // into account where to position itself relative to the previous element's marginBottom.
+      // into profile where to position itself relative to the previous element's marginBottom.
       // To compensate, we translate the container up by the previous element's margin.
       containerNode.style[ionic.CSS.TRANSFORM] = TRANSLATE_TEMPLATE_STR
         .replace(PRIMARY, -beforeMargin)
@@ -9666,7 +9666,7 @@ function RepeatManagerFactory($rootScope, $window, $$rAF) {
       this.updateRenderRange = function(scrollValue, scrollValueEnd) {
         renderStartIndex = Math.max(0, this.getEstimatedIndex(scrollValue));
 
-        // Make sure the renderEndIndex takes into account all the items on the row
+        // Make sure the renderEndIndex takes into profile all the items on the row
         renderEndIndex = Math.min(data.length - 1,
           this.getEstimatedIndex(scrollValueEnd) + this.estimatedItemsAcross - 1);
 
