@@ -1,13 +1,10 @@
-/**
- * Created by sonam on 14/10/16.
- */
-vendorApp.controller('SignUpCtrl', function ($scope,$ionicLoading,$http,$ionicPopup,$rootScope,$timeout, $state) {
+vendorApp.controller('SignUpCtrl', function ($scope,$ionicLoading,$http,$ionicPopup,$rootScope,$timeout,
+                                             $state) {
 
     $scope.user = {
         name: '',
         email: '',
         mobile_num: '',
-        referral_code: '',
         gender: '',
         password:''
     };
@@ -186,9 +183,6 @@ vendorApp.controller('SignUpCtrl', function ($scope,$ionicLoading,$http,$ionicPo
                     firebase.database().ref('users/vendors/'+$scope.uid)
                         .set(vendorData,function(response) {
                             if(response == null){
-                                window.localStorage.setItem("name", $scope.user.name);
-                                window.localStorage.setItem("mobileNumber", $scope.user.mobile_num);
-                                window.localStorage.setItem("email", $scope.user.email);
                                 window.localStorage.setItem("uid", $scope.uid);
                                 $rootScope.$broadcast('logged_in', { message: 'usr logged in' });
                                 $state.go('tab.home');

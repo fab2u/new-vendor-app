@@ -51,6 +51,13 @@ var vendorApp = angular.module('starter', ['ionic','ngCordova'])
       }
     }
   })
+      .state('landing', {
+        url: '/landing',
+        abstract: false,
+        cache:false,
+        templateUrl: 'templates/auth/app-landing.html',
+        controller: 'appLandingCtrl'
+      })
 
       .state('login', {
         url: '/login',
@@ -64,6 +71,21 @@ var vendorApp = angular.module('starter', ['ionic','ngCordova'])
         controller: 'SignUpCtrl'
 
       })
+  //State for update app
+  .state('updateApp', {
+    url: '/updateApp',
+    templateUrl: 'templates/general/updateApp.html',
+    controller: 'updateAppCtrl'
+
+  })
+      /////state for under-construction //////
+  .state('under-construction', {
+    url: '/under-construction',
+    templateUrl: 'templates/general/AppUnderConstruction.html',
+    controller: 'AppUnderConstructionCtrl'
+
+  })
+
 
   .state('tab.menu', {
       url: '/menu',
