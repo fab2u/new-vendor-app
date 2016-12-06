@@ -1,7 +1,10 @@
 /* Empty. Add your own CSS if you like */
 @import url("auth/login.css");
 @import url("auth/signup.css");
+@import url("auth/landing.css");
 @import url("home/home.css");
 @import url("home/bookings.css");
 @import url("menu/vendor-menu.css");
 @import url("profile/overview.css");
+@import url("general/new-slider.css");
+@import url("general/location.css");

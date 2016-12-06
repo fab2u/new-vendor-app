@@ -59,6 +59,19 @@ var vendorApp = angular.module('starter', ['ionic','ngCordova'])
         controller: 'appLandingCtrl'
       })
 
+      .state('location', {
+        url: '/location',
+        cache:false,
+        templateUrl: 'templates/general/location.html',
+        controller: 'LocationCtrl'
+      })
+
+      .state('intro-slider', {
+        url: '/intro-slider',
+        templateUrl: 'templates/general/intro-slider.html',
+        controller: 'IntroSliderCtrl'
+      })
+
       .state('login', {
         url: '/login',
             templateUrl: 'templates/auth/login.html',
@@ -118,7 +131,7 @@ var vendorApp = angular.module('starter', ['ionic','ngCordova'])
 
   // if none of the above states are matched, use this as the fallback
   // $urlRouterProvider.otherwise('/tab/dash');
-  $urlRouterProvider.otherwise('/tab/home');
+  $urlRouterProvider.otherwise('/landing');
 
 
 });
